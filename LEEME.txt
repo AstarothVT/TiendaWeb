@@ -1,0 +1,24 @@
+TiendaWeb - Taller Razor Pages y Migraciones (EF Core Code First)
+
+COMO USARLO
+1. Descomprime el ZIP y abre TiendaWeb.sln con Visual Studio 2022.
+2. Espera a que restaure los paquetes NuGet (automatico).
+3. Herramientas > Administrador de paquetes NuGet > Consola del Administrador de paquetes:
+       Update-Database
+   (esto aplica las migraciones Inicial y AgregarStock y crea TiendaDB)
+4. Presiona F5 y entra a /Productos.
+
+SI USAS SQL EXPRESS en vez de LocalDB, cambia en appsettings.json:
+   Server=.\\SQLEXPRESS;Database=TiendaDB;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;
+
+SI QUIERES GENERAR LAS MIGRACIONES TU MISMO (como pide el taller):
+   borra la carpeta Migrations, quita la propiedad Stock del modelo Producto y ejecuta:
+       Add-Migration Inicial
+       Update-Database
+   luego vuelve a poner Stock y ejecuta:
+       Add-Migration AgregarStock
+       Update-Database
+
+VERIFICAR EN SQL SERVER (Explorador de objetos > TiendaDB > New Query):
+   SELECT * FROM dbo.Productos;
+   SELECT * FROM dbo.__EFMigrationsHistory;

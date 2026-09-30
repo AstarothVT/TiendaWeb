@@ -1,0 +1,29 @@
+@page
+@model TiendaWeb.Pages.Productos.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar producto";
+}
+
+<h1>Eliminar producto</h1>
+
+<h3>¿Seguro que desea eliminar este producto?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Producto.Nombre)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Producto.Nombre)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Producto.Precio)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Producto.Precio)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Producto.FechaRegistro)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Producto.FechaRegistro)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Producto.Stock)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Producto.Stock)</dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Producto.Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn btn-secondary">Volver al listado</a>
+    </form>
+</div>
